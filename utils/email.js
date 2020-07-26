@@ -1,5 +1,5 @@
 const nodemailer = require('nodemailer');
-const sgTransport = require('nodemailer-sendgrid-transport');
+const nodemailerSendgrid = require('nodemailer-sendgrid');
 const pug = require('pug');
 const htmlToText = require('html-to-text');
 
@@ -15,7 +15,7 @@ module.exports = class Email {
   newTransport() {
     if (process.env.NODE_ENV === 'production')
       return nodemailer.createTransport(
-        sgTransport({ apiKey: process.env.SENDGRID_API_KEY })
+        nodemailerSendgrid({ apiKey: process.env.SENDGRID_API_KEY })
       );
 
     return nodemailer.createTransport({
