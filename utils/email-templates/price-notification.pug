@@ -1,0 +1,26 @@
+extends base-email
+
+block content
+  p Hi #{firstName}
+  p The #{product.name} has reached the price you've been waiting for, it's now #{product.price}€. Cool, isn't it?
+  p But hurry, because it might run out of stock and we don't want you to  miss it.
+  table.btn.btn-primary(role='presentation' border='0' cellpadding='0' cellspacing='0')
+    tbody
+      tr
+        td(align='left')
+          table(role='presentation' border='0' cellpadding='0' cellspacing='0')
+            tbody
+              tr
+                td
+                  a(href=`${product.trackerUrl}` target='_blank') View on TrackWiggle
+  table.btn.btn-primary(role='presentation' border='0' cellpadding='0' cellspacing='0')
+    tbody
+      tr
+        td(align='left')
+          table(role='presentation' border='0' cellpadding='0' cellspacing='0')
+            tbody
+              tr
+                td
+                  a(href=`${url}` target='_blank') View on Wiggle
+  p You got this email because you turned on the notifications on this product. But don't worry, we won't email you again about this product, unless you set another price alert.
+  p In case you experience any problems, please feel free to contact us on the whatever@example.com email address!

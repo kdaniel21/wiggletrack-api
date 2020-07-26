@@ -1,0 +1,18 @@
+extends base-email
+
+block content
+  p Hi #{firstName}
+  p Welcome to WiggleTracker! We're glad you're here!
+  p With your credentials in hand you can now log in to the website any time you want and can track the prices of your favorite sporting goods from Wiggle!
+  p Sounds cool, doesn't it? Even though we're working hard to make the process as smooth as possible there might be hiding some evil bugs that we haven't encountered yet.
+  p If you experience anything unusual please contact us at dev@example.com with some details regarding to your discovery and we'll contact you as soon as possible to fix it, so that neither you nor anybody else will experience that again. Thank you!
+  table.btn.btn-primary(role='presentation' border='0' cellpadding='0' cellspacing='0')
+    tbody
+      tr
+        td(align='left')
+          table(role='presentation' border='0' cellpadding='0' cellspacing='0')
+            tbody
+              tr
+                td
+                  a(href=`${url}` target='_blank') Experience The Site
+  p In case you experience any problems, please feel free to contact us on the whatever@example.com email address!
