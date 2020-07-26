@@ -15,7 +15,7 @@ module.exports = class Email {
   newTransport() {
     if (process.env.NODE_ENV === 'production')
       return nodemailer.createTransport(
-        sgTransport(process.env.SENDGRID_API_KEY)
+        sgTransport({ apiKey: process.env.SENDGRID_API_KEY })
       );
 
     return nodemailer.createTransport({
