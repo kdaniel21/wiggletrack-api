@@ -25,7 +25,6 @@ const server = app.listen(port, () =>
 // Fetch data every 24 hours
 const getAllData = require('./utils/get-daily-data');
 const schedule = require('node-schedule');
-// schedule.scheduleJob('52 19 * * *', async () => {
-//   console.log('RAN');
-//   await getAllData();
-// });
+schedule.scheduleJob('10 13 * * *', async () => {
+  await getAllData();
+});
