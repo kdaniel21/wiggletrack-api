@@ -57,6 +57,10 @@ exports.createOne = (Model, allowedFields) =>
       newDocData[field] = req.body[field];
     });
 
+    if (options) {
+      if (options.addUser) newDocData.user = req.user._id;
+    }
+
     const newDoc = await Model.create(newDocData);
 
     res.status(201).json({

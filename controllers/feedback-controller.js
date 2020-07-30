@@ -6,9 +6,8 @@ exports.reportErrorMiddleware = (req, res, next) => {
   next();
 };
 
-exports.reportError = factoryHandler.createOne(Feedback, [
-  'type',
-  'user',
-  'message',
-  'media',
-]);
+exports.reportError = factoryHandler.createOne(
+  Feedback,
+  ['type', 'topic', 'user', 'message', 'media', 'os', 'browser', 'page'],
+  { addUser: true }
+);

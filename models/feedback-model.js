@@ -7,6 +7,10 @@ const feedbackSchema = new mongoose.Schema(
       enum: ['general', 'bug-report'],
       required: true,
     },
+    topic: {
+      type: String,
+      required: true,
+    },
     user: {
       type: mongoose.Types.ObjectId,
       required: true,
@@ -16,6 +20,9 @@ const feedbackSchema = new mongoose.Schema(
       required: true,
     },
     media: [String],
+    os: String,
+    browser: String,
+    page: String,
   },
   { timestamps: true }
 );
