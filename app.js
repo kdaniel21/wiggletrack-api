@@ -11,8 +11,7 @@ const handleError = require('./controllers/error-controller');
 const productRouter = require('./routes/product-routes');
 const authRouter = require('./routes/auth-routes');
 const userRouter = require('./routes/user-routes');
-const getAllData = require('./utils/get-daily-data');
-const Product = require('./models/product-model');
+const reportErrorRouter = require('./routes/report-error-routes');
 
 const app = express();
 
@@ -42,6 +41,7 @@ app.use(cookieParser());
 app.use('/api/v1/products', productRouter);
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/users', userRouter);
+app.use('/api/v1/errors', reportErrorRouter);
 
 // Register error handling
 app.use(handleError);

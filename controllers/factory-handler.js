@@ -49,7 +49,7 @@ exports.getAll = (Model, options) =>
     });
   });
 
-exports.createOne = (Model, allowedFields, options) =>
+exports.createOne = (Model, allowedFields) =>
   catchAsync(async (req, res, next) => {
     // Copy only allowed properties from body
     const newDocData = {};
