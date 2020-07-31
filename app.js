@@ -41,7 +41,7 @@ app.use(cookieParser());
 app.use('/api/v1/products', productRouter);
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/users', userRouter);
-app.use('/api/v1/bug', reportErrorRouter);
+app.use('/api/v1/feedbacks', reportErrorRouter);
 
 // Register error handling
 app.use(handleError);
