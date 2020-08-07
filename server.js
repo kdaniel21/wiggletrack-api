@@ -11,10 +11,10 @@ mongoose
   .connect(process.env.DB_HOST, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: false,
+    useFindAndModify: false
   })
   .then(() => console.log(chalk.bgGreen('Successfully connected to the DB.')))
-  .catch((err) => console.log('Could not connect to the DB!', err));
+  .catch(err => console.log('Could not connect to the DB!', err));
 
 // Start server
 const port = process.env.PORT || 3000;
@@ -25,6 +25,6 @@ const server = app.listen(port, () =>
 // Fetch data every 24 hours
 const getAllData = require('./utils/get-daily-data');
 const schedule = require('node-schedule');
-schedule.scheduleJob('10 13 * * *', async () => {
+schedule.scheduleJob('19 30 * * *', async () => {
   await getAllData();
 });
