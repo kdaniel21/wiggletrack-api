@@ -27,5 +27,7 @@ const getAllData = require('./utils/get-daily-data');
 const schedule = require('node-schedule');
 schedule.scheduleJob('15 10 * * *', async () => {
   console.log('Scraped data at ', new Date());
-  await getAllData();
+  getAllData()
+    .then(() => console.log('data scraped'))
+    .catch(err => console.log(chalk.red('Error while scraping data!'), err));
 });

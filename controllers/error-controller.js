@@ -16,7 +16,6 @@ const handleDevError = (err, res) => {
 };
 
 const handleProdError = (err, res) => {
-  console.log(err);
   if (!err.isOperational)
     return res.status(500).json({
       status: 'error',
