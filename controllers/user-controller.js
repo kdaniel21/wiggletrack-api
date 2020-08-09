@@ -28,6 +28,11 @@ exports.getOwnProducts = catchAsync(async (req, res, next) => {
     })
     .execPopulate();
 
+  // Filter out invalid products if any
+  req.user.products = req.user.products.filter(product => !!product.product);
+
+  console.log(req.user.products);
+
   res.status(200).json({
     status: 'success',
     data: req.user.products,
