@@ -17,6 +17,14 @@ exports.updateProfile = factoryHandler.updateOne(User, [
 exports.getProfile = factoryHandler.getOne(User);
 
 exports.getOwnProducts = catchAsync(async (req, res, next) => {
+  // Page for pagination
+  const page = +req.query.page;
+  const limit = +req.query.limit || 3;
+  const skip = (page - 1) * limit;
+
+  console.log(limit, skip);
+
+  // Query
   await req.user
     .populate({
       path: 'products',
@@ -24,9 +32,12 @@ exports.getOwnProducts = catchAsync(async (req, res, next) => {
         path: 'product',
         model: 'Product',
         select: 'name images ',
+        perDocumentLimit: limit,
+        options: {
+          skip
+        }
       },
-    })
-    .execPopulate();
+    }).execPopulate();
 
   // Filter out invalid products if any
   req.user.products = req.user.products.filter(product => !!product.product);
