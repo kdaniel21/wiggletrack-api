@@ -46,7 +46,7 @@ const productSchema = new mongoose.Schema(
     // used to store the latest price range for faster search result queries
     latestPriceRange: latestPriceRangeSchema,
     notifications: { type: [notificationSchema], select: false },
-    active: { type: Boolean, default: true, select: false },
+    active: { type: Boolean, default: true },
   },
   { timestamps: true, toJSON: { virtuals: true } }
 );
